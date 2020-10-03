@@ -1,0 +1,16 @@
+version: '3'
+services:
+  python3-flask:
+    restart: always
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: 'python3-flask'
+    working_dir: '/root/'
+    tty: true
+    #command: python3 /root/docroot/app.py
+    volumes:
+      - ./opt:/root/opt
+      - ./docroot:/root/docroot
+    ports:
+      - 8080:80
